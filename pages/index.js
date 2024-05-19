@@ -23,6 +23,7 @@ import About from "../components/About";
 import Terms from "../components/Terms";
 import Privacy from "../components/Privacy";
 import ChangeLog from "../components/ChangeLog";
+import Controls from "../components/Controls";
 const regions = [
   { key: "eu", name: "Eu", img: "eu.png" },
   { key: "us", name: "US", img: "us.png" }
@@ -35,10 +36,11 @@ const modes = [
 ]
 
 const infos = [
-  { key: "about", title: "About game", content: <About /> },
-  { key: "privacy", title: "Privacy Policy", content: <Privacy /> },
-  { key: "terms", title: "Terms of Service", content: <Terms /> },
-  { key: "changelog", title: "Change Logs History", content: <ChangeLog /> }
+  { key: "about", mobile: false, title: "About game", content: <About /> },
+  { key: "privacy", mobile: false, title: "Privacy Policy", content: <Privacy /> },
+  { key: "terms", mobile: false, title: "Terms of Service", content: <Terms /> },
+  { key: "changelog", mobile: false, title: "Change Logs History", content: <ChangeLog /> },
+  { key: "controls", mobile: true, title: "Controls", content: <Controls /> }
 ]
 
 const theme = {
@@ -96,11 +98,11 @@ export default function Home() {
               gigga.io
             </div>
           </div>
-          <div className="flex flex-row gap-4 h-[470px] px-4">
+          <div className="flex flex-row gap-3 h-[470px] px-4">
             <div className="flex-1 lg:flex hidden bg-[#343a40] rounded-lg h-full">
 
             </div>
-            <div className="flex-1 h-full flex flex-col gap-4 w-full">
+            <div className="flex-1 h-full flex flex-col gap-3 w-full">
               <div className="bg-[#343a40] rounded-lg p-4 ">
                 <div className='text-2xl font-bold text-center pb-4'>
                   Regions
@@ -111,7 +113,7 @@ export default function Home() {
                       <button
                         key={r.key}
                         onClick={() => handleRegion(r.key)}
-                        className={`flex-1 flex rounded-md p-2 relative items-center hover:bg-[#74849152] border ${r.key == region ? "bg-[#74849152] border-white" : "border-transparent"}`}
+                        className={`duration-500 flex-1 flex rounded-md p-2 relative items-center hover:bg-[#74849152] border ${r.key == region ? "bg-[#74849152] border-white" : "border-transparent"}`}
                       >
                         <img src={`./images/${r.img}`} className='w-[50px] h-[30px] rounded-md' />
                         <div className='pl-2 text-lg'>{r.name}</div>
@@ -122,7 +124,7 @@ export default function Home() {
               </div>
               <div className="bg-[#343a40] rounded-lg p-4 ">
                 <div className='text-2xl font-bold text-center pb-4'>
-                  Gamemode
+                  Game mode
                 </div>
                 <div className='flex flex-row gap-2'>
                   {
@@ -130,7 +132,7 @@ export default function Home() {
                       <button
                         key={m.key}
                         onClick={() => handleMode(m.key)}
-                        className={`flex rounded-md p-2 relative items-center hover:bg-[#74849152] cursor-pointer border ${m.key == mode ? "bg-[#74849152] border-white" : "border-transparent"}`}
+                        className={`duration-500 flex rounded-md p-2 relative items-center hover:bg-[#74849152] cursor-pointer border ${m.key == mode ? "bg-[#74849152] border-white" : "border-transparent"}`}
                       >
                         <img src={`./images/${m.img}`} className='w-[20px] h-[20px] rounded-md' />
                         <div className='pl-1 text-sm'>{m.name}</div>
@@ -140,18 +142,28 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex-1 bg-[#343a40] rounded-lg flex flex-col gap-3 p-4 justify-center">
-                <input class=" py-2 border-none rounded w-full px-3 bg-[#74849152] text-gray-100 leading-tight focus:outline-none" id="username" type="text" placeholder="Username" />
-                <div className='flex flex-row gap-4'>
-                  <button className='flex-1 bg-[#007bff] flex py-2 items-center justify-center rounded-md font-bold text-base'>
+                {/* <input class=" py-2 border-none rounded w-full px-3 bg-[#74849152] text-gray-100 leading-tight focus:outline-none" id="username" type="text" placeholder="Username" /> */}
+                <Input label="User name" id="username" color='white' />
+                <div className='flex flex-row gap-2'>
+                  <button className='flex-1 bg-[#007bff] hover:bg-[#006ada] duration-500 flex py-2 items-center justify-center rounded-md font-bold text-base gap-1'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+                    </svg>
                     Play
                   </button>
-                  <button className='flex-1 bg-[#ffc107] flex py-2 items-center justify-center text-[#212529] rounded-md font-bold text-base'>
+                  <button className='flex-1 bg-[#ffc107] hover:bg-[#e1a900] duration-500 flex py-2 items-center justify-center text-[#212529] rounded-md font-bold text-base gap-1'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+                    </svg>
                     More games
                   </button>
                 </div>
                 <button
                   onClick={handleSetting}
-                  className='bg-[#dc3545] flex items-center justify-center py-2 rounded-md font-bold text-base'>
+                  className='bg-[#dc3545] hover:bg-[#b62937] duration-500 flex items-center justify-center py-2 rounded-md font-bold text-base gap-1'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                    <path fillRule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clipRule="evenodd" />
+                  </svg>
                   Settings
                 </button>
               </div>
@@ -185,6 +197,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <div className='absolute flex flex-col gap-4 bottom-4 right-4'>
           <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -198,9 +211,12 @@ export default function Home() {
           </Link>
         </div>
         <div
-          className='absolute top-10 left-0  py-2 px-10 font-bold bg-[#74849152] rounded-tr-full rounded-br-full cursor-pointer'
+          className='absolute top-10 left-0  py-2 px-6 font-bold bg-[#74849152] rounded-tr-full rounded-br-full cursor-pointer flex gap-3'
           onClick={() => handleNavDrawer(true)}
         >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+            <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+          </svg>
           More
         </div>
         <Drawer open={openNav} onClose={() => handleNavDrawer(false)} className="p-4 bg-[#343a40] ">
@@ -227,10 +243,20 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-2">
             {
-              infos.map(info => (
+              infos.filter(info => !info.mobile).map(info => (
                 <div
                   onClick={() => handleDescModal(info)}
-                  className='hover:bg-[#74849152] px-3 py-2 cursor-pointer rounded-md'
+                  className='hover:bg-[#74849152] duration-500 px-3 py-2 cursor-pointer rounded-md'
+                >
+                  {info.title}
+                </div>
+              ))
+            }
+            {
+              infos.filter(info => info.mobile).map(info => (
+                <div
+                  onClick={() => handleDescModal(info)}
+                  className='block md:hidden duration-500 hover:bg-[#74849152] px-3 py-2 cursor-pointer rounded-md'
                 >
                   {info.title}
                 </div>
