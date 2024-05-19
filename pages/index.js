@@ -99,8 +99,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-row gap-3 h-[470px] px-4">
-            <div className="flex-1 lg:flex hidden bg-[#343a40] rounded-lg h-full">
-
+            <div className="flex-1 lg:flex hidden bg-[#343a40] rounded-lg h-full justify-center items-center text-3xl text-[#8c8c8c]">
+              Ads
             </div>
             <div className="flex-1 h-full flex flex-col gap-3 w-full">
               <div className="bg-[#343a40] rounded-lg p-4 ">
@@ -151,7 +151,7 @@ export default function Home() {
                     </svg>
                     Play
                   </button>
-                  <button className='flex-1 bg-[#ffc107] hover:bg-[#e1a900] duration-500 flex py-2 items-center justify-center text-[#212529] rounded-md font-bold text-base gap-1'>
+                  <button className='flex-1 bg-[#ffc107] hover:bg-[#e1a900] duration-500 flex py-2 items-center justify-center text-[#212529] rounded-md font-bold text-base'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                       <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
                     </svg>
@@ -221,7 +221,10 @@ export default function Home() {
         </div>
         <Drawer open={openNav} onClose={() => handleNavDrawer(false)} className="p-4 bg-[#343a40] ">
           <div className="mb-6 flex items-center justify-between">
-            <Typography variant="h5" color="white">
+            <Typography variant="h5" color="white" className='flex gap-2'>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+              </svg>
               More
             </Typography>
             <IconButton variant="text" color="blue-gray" onClick={() => handleNavDrawer(false)}>
