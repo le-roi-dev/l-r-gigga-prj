@@ -25,8 +25,8 @@ import Privacy from "../components/Privacy";
 import ChangeLog from "../components/ChangeLog";
 import Controls from "../components/Controls";
 const regions = [
-  { key: "eu", name: "Eu", img: "eu.png" },
-  { key: "us", name: "US", img: "us.png" }
+  { key: "EU", name: "EU", img: "eu.png" },
+  { key: "US", name: "US", img: "us.png" }
 ]
 
 const modes = [
@@ -68,16 +68,49 @@ const theme = {
     }
   }
 }
+const maxNum = 80;
+const servers = [
+  { key: "1", region: "US", name: "Clan Wars", number: 0 },
+  { key: "2", region: "US", name: "Arms Race Maze 2TDM", number: 10 },
+  { key: "3", region: "US", name: "Assault Trenches", number: 0 },
+  { key: "4", region: "US", name: "Outbreak Maze Squads", number: 20 },
+  { key: "5", region: "US", name: "Old Dreadnoughts 2TDM", number: 0 },
+  { key: "6", region: "US", name: "Growth Arms Race 2TDM", number: 30 },
+  { key: "7", region: "US", name: "Nexus", number: 10 },
+  { key: "8", region: "US", name: "4TDM", number: 0 },
+  { key: "9", region: "US", name: "Squads", number: 0 },
+  { key: "10", region: "US", name: "Siege Blitz", number: 30 },
+  { key: "11", region: "US", name: "Arms Race Grudge Ball", number: 0 },
+  { key: "12", region: "US", name: "Dreadnoughts", number: 0 },
+  { key: "13", region: "US", name: "Maze", number: 0 },
+  { key: "14", region: "US", name: "Growth Arms Race Maze", number: 20 },
+  { key: "15", region: "EU", name: "Arms Race Maze", number: 10 },
+  { key: "16", region: "EU", name: "2TDM", number: 30 },
+  { key: "17", region: "EU", name: "Maze 4TDM", number: 0 },
+  { key: "18", region: "EU", name: "Assault Stronghold", number: 20 },
+  { key: "19", region: "EU", name: "Manhunt", number: 50 },
+  { key: "20", region: "EU", name: "Old Dreadnoughts 2TDM", number: 0 },
+  { key: "21", region: "EU", name: "Maze", number: 0 },
+  { key: "22", region: "EU", name: "Open Maze 2TDM", number: 30 },
+  { key: "23", region: "EU", name: "Siege Blitz", number: 10 },
+  { key: "24", region: "EU", name: "Arms Race Magic Maze", number: 0 },
+  { key: "25", region: "EU", name: "Nexus", number: 20 },
+]
 export default function Home() {
   const [openNav, setOpenNav] = useState(false);
   const [openSetting, setOpenSetting] = useState(false);
-  const [region, setRegion] = useState("eu");
+  const [region, setRegion] = useState("EU");
+  const [server, setServer] = useState(servers[0].key);
   const [mode, setMode] = useState("FFA");
   const [openDescModal, setOpenDescModal] = useState(false);
   const [info, setInfo] = useState({});
   const [optColors, setOptColors] = useState("classic");
   const [optBorders, setOptBorders] = useState("normal");
-  const handleRegion = (key) => setRegion(key);
+  const handleServer = (key) => setServer(key);
+  const handleRegion = (key) => {
+    setServer('');
+    setRegion(key)
+  };
   const handleMode = (key) => setMode(key);
   const handleSetting = () => setOpenSetting(!openSetting);
   const handleNavDrawer = (value) => setOpenNav(value);
@@ -86,7 +119,6 @@ export default function Home() {
     setInfo(info);
     setOpenDescModal(!openDescModal)
   };
-
 
   return (
     <ThemeProvider value={theme}>
@@ -98,15 +130,15 @@ export default function Home() {
               gigga.io
             </div>
           </div>
-          <div className="flex flex-row gap-3 h-[470px] px-4">
+          <div className="flex flex-row gap-3 h-[550px] px-4">
             <div className="flex-1 lg:flex hidden bg-[#343a40] rounded-lg h-full justify-center items-center text-3xl text-[#8c8c8c]">
               Ads
             </div>
             <div className="flex-1 h-full flex flex-col gap-3 w-full">
               <div className="bg-[#343a40] rounded-lg p-4 ">
-                <div className='text-2xl font-bold text-center pb-4'>
+                {/* <div className='text-2xl font-bold text-center pb-4'>
                   Regions
-                </div>
+                </div> */}
                 <div className='flex flex-row gap-2'>
                   {
                     regions.map(r => (
@@ -123,9 +155,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-[#343a40] rounded-lg p-4 ">
-                <div className='text-2xl font-bold text-center pb-4'>
+                {/* <div className='text-2xl font-bold text-center pb-4'>
                   Game mode
-                </div>
+                </div> */}
                 <div className='flex flex-row gap-2'>
                   {
                     modes.map(m => (
@@ -141,8 +173,20 @@ export default function Home() {
                   }
                 </div>
               </div>
-              <div className="flex-1 bg-[#343a40] rounded-lg flex flex-col gap-3 p-4 justify-center">
-                {/* <input class=" py-2 border-none rounded w-full px-3 bg-[#74849152] text-gray-100 leading-tight focus:outline-none" id="username" type="text" placeholder="Username" /> */}
+              <div className='flex-1 bg-[#343a40] rounded-lg p-4 text-sm overflow-auto flex flex-col gap-1'>
+                {
+                  servers.filter(s => s.region == region).map(s => (
+                    <button
+                      onClick={() => handleServer(s.key)}
+                      className={`flex duration-500 gap-1 p-1 rounded-md hover:bg-blue-gray-50 hover:text-blue-gray-900 ${server == s.key ? 'bg-blue-gray-50 text-blue-gray-900' : ''}`}>
+                      <div className='px-2'>{s.region}</div>
+                      <div className='flex-1'>{s.name}</div>
+                      <div className=''>{s.number}/{maxNum}</div>
+                    </button>
+                  ))
+                }
+              </div>
+              <div className="bg-[#343a40] rounded-lg flex flex-col gap-3 p-4 justify-center">
                 <Input label="User name" id="username" color='white' />
                 <div className='flex flex-row gap-2'>
                   <button className='flex-1 bg-[#007bff] hover:bg-[#006ada] duration-500 flex py-2 items-center justify-center rounded-md font-bold text-base gap-1'>
@@ -151,21 +195,7 @@ export default function Home() {
                     </svg>
                     Play
                   </button>
-                  <button className='flex-1 bg-[#ffc107] hover:bg-[#e1a900] duration-500 flex py-2 items-center justify-center text-[#212529] rounded-md font-bold text-base'>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                      <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
-                    </svg>
-                    More games
-                  </button>
                 </div>
-                <button
-                  onClick={handleSetting}
-                  className='bg-[#dc3545] hover:bg-[#b62937] duration-500 flex items-center justify-center py-2 rounded-md font-bold text-base gap-1'>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                    <path fillRule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clipRule="evenodd" />
-                  </svg>
-                  Settings
-                </button>
               </div>
             </div>
             <div className="md:flex hidden flex-1 rounded-lg h-full flex-col gap-4">
@@ -177,14 +207,14 @@ export default function Home() {
                   Use W A S D to move. Aim with your mouse and shoot with space. Good Luck!
                 </div>
               </div>
-              <div className='flex-1 bg-[#343a40] rounded-lg  p-4'>
+              <div className='flex-1 flex flex-col bg-[#343a40] rounded-lg  p-4'>
                 <div className='text-2xl font-bold text-center pb-4'>
                   Latest Update
                 </div>
                 <div className='text-lg font-bold pb-2'>
                   Patch (14/05/2024): Update lol
                 </div>
-                <div className=''>
+                <div className='flex-1'>
                   <ul className='text-[#aaaaaa] text-base list-disc pl-4'>
                     <li>Bug fixes</li>
                     <li>Small redesignes to Domination mode</li>
@@ -192,6 +222,22 @@ export default function Home() {
                     <li>New boss</li>
                     <li>More!</li>
                   </ul>
+                </div>
+                <div className='flex flex-row gap-2'>
+                  <button
+                    onClick={handleSetting}
+                    className='flex-1 bg-[#dc3545] hover:bg-[#b62937] duration-500 flex items-center justify-center py-2 rounded-md font-bold text-base gap-1'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clipRule="evenodd" />
+                    </svg>
+                    Settings
+                  </button>
+                  <button className='flex-1 bg-[#ffc107] hover:bg-[#e1a900] duration-500 flex py-2 items-center justify-center text-[#212529] rounded-md font-bold text-base'>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
+                    </svg>
+                    More games
+                  </button>
                 </div>
               </div>
             </div>
@@ -265,6 +311,17 @@ export default function Home() {
                 </div>
               ))
             }
+            <div
+              onClick={() => handleSetting()}
+              className='block md:hidden duration-500 hover:bg-[#74849152] px-3 py-2 cursor-pointer rounded-md'
+            >
+              Setting
+            </div>
+            <div
+              className='block md:hidden duration-500 hover:bg-[#74849152] px-3 py-2 cursor-pointer rounded-md'
+            >
+              More games
+            </div>
           </div>
         </Drawer>
         <Dialog open={openDescModal} handler={handleDescModal} className='bg-[#343a40]'>
