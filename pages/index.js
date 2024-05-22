@@ -98,6 +98,7 @@ const servers = [
 export default function Home() {
   const [openNav, setOpenNav] = useState(false);
   const [openSetting, setOpenSetting] = useState(false);
+  const [openSkype, setOpenSkype] = useState(false);
   const [region, setRegion] = useState("EU");
   const [server, setServer] = useState(servers[0].key);
   const [mode, setMode] = useState("FFA");
@@ -111,6 +112,7 @@ export default function Home() {
     setRegion(key)
   };
   const handleMode = (key) => setMode(key);
+  const handleSkype = () => setOpenSkype(!openSkype);
   const handleSetting = () => setOpenSetting(!openSetting);
   const handleNavDrawer = (value) => setOpenNav(value);
   const handleDescModal = (info) => {
@@ -234,25 +236,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div
-          className='drop-shadow-2xl absolute bottom-5 left-0  py-2 px-6 bg-blue-gray-50 text-blue-gray-900 rounded-tr-full rounded-br-full cursor-pointer flex gap-3 justify-center items-center'
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
-            <path fill="#174ba8" d="M16 4A12 12 0 1 0 16 28A12 12 0 1 0 16 4Z"></path><path fill="#146ce8" d="M32 20A12 12 0 1 0 32 44A12 12 0 1 0 32 20Z"></path><path fill="#30a6ff" d="M24 6A18 18 0 1 0 24 42A18 18 0 1 0 24 6Z"></path><path fill="#fff" d="M16.97,31.316c0-1.037,1.089-1.624,1.832-1.624c0.743,0,2.816,1.451,4.803,1.451 c1.054,0,3.421-0.103,3.421-2.29c0-3.585-10.115-3.308-10.115-9.274c0-1.038,0.285-5.795,7.784-5.795 c2.016,0,5.71,0.577,5.71,2.493c0,1.406-0.958,1.769-1.6,1.769c-1.244,0-1.745-1.123-4.285-1.123c-3.508,0-3.421,2.102-3.421,2.408 c0,3.017,10.073,3.017,10.073,9.255c0,6.141-7.491,5.814-8.58,5.814C21.474,34.4,16.97,33.856,16.97,31.316z"></path>
-          </svg>
-          <div className='text-blue-900 text-sm'>live:.cid.9aa530fa16e609c6</div>
-        </div>
+
         <div className='absolute flex flex-col gap-4 bottom-4 right-4'>
-          <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl text-blue-gray-50'>
+          <button
+            className='bg-blue-gray-50 p-4 rounded-xl drop-shadow-2xl'
+            onClick={handleSkype}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+              <path fill="#174ba8" d="M16 4A12 12 0 1 0 16 28A12 12 0 1 0 16 4Z"></path><path fill="#146ce8" d="M32 20A12 12 0 1 0 32 44A12 12 0 1 0 32 20Z"></path><path fill="#30a6ff" d="M24 6A18 18 0 1 0 24 42A18 18 0 1 0 24 6Z"></path><path fill="#fff" d="M16.97,31.316c0-1.037,1.089-1.624,1.832-1.624c0.743,0,2.816,1.451,4.803,1.451 c1.054,0,3.421-0.103,3.421-2.29c0-3.585-10.115-3.308-10.115-9.274c0-1.038,0.285-5.795,7.784-5.795 c2.016,0,5.71,0.577,5.71,2.493c0,1.406-0.958,1.769-1.6,1.769c-1.244,0-1.745-1.123-4.285-1.123c-3.508,0-3.421,2.102-3.421,2.408 c0,3.017,10.073,3.017,10.073,9.255c0,6.141-7.491,5.814-8.58,5.814C21.474,34.4,16.97,33.856,16.97,31.316z"></path>
+            </svg>
+            {/* <div className='text-blue-900 text-sm'>live:.cid.9aa530fa16e609c6</div> */}
+          </button>
+          <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl text-blue-gray-50 drop-shadow-2xl'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
               <path fill="currentColor" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418Z"></path>
             </svg>
           </Link>
-          <Link href="https://www.reddit.com/r/giggaio/" className='bg-[#ff4400] p-4 rounded-xl text-blue-gray-50'>
+
+          <Link href="https://www.reddit.com/r/giggaio/" className='bg-[#ff4400] p-4 rounded-xl text-blue-gray-50 drop-shadow-2xl'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1792 1696">
               <path fill="currentColor" d="M1792 846q0 58-29.5 105.5T1683 1024q12 46 12 96q0 155-106.5 287T1298 1615.5T898 1692t-399.5-76.5t-290-208.5T102 1120q0-47 11-94q-51-25-82-73.5T0 846q0-82 58-140.5T199 647q85 0 145 63q218-152 515-162L975 27q3-13 15-21t26-5l369 81q18-37 54-59.5T1518 0q62 0 106 43.5t44 105.5t-44 106t-106 44t-105.5-43.5T1369 150l-334-74l-104 472q300 9 519 160q58-61 143-61q83 0 141 58.5t58 140.5zM418 1045q0 62 43.5 106t105.5 44t106-44t44-106t-44-105.5T567 896q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20t-160-20t-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5t91 4.5t91-4.5t122.5-29.5t118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5t44 106t106 44z"></path>
             </svg>
           </Link>
+
         </div>
         <div
           className='drop-shadow-2xl absolute top-10 left-0  py-2 px-6 font-bold bg-blue-gray-50 text-blue-gray-900 rounded-tr-full rounded-br-full cursor-pointer flex gap-3'
@@ -426,6 +432,53 @@ export default function Home() {
             </div>
             <div className='px-3 py-2'>
               <Input label="Your token" color='blue-gray-900' />
+            </div>
+          </DialogBody>
+        </Dialog>
+
+        <Dialog open={openSkype} handler={handleSkype} size='xs' className='bg-blue-gray-50'>
+          <DialogHeader className='flex items-center justify-between pb-0 text-blue-gray-900'>
+            <div>Contact me</div>
+            <IconButton variant="text" color="blue-gray" onClick={handleSkype}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </IconButton>
+          </DialogHeader>
+          <DialogBody className='max-h-[700px] text-blue-gray-900'>
+            <div className='px-4 pb-4 flex flex-col gap-1'>
+              <div>
+                Hi Zubair. I am Oleksandr K.
+              </div>
+              <div>
+                I am sorry for not responding to your message.
+              </div>
+              <div>
+                There are some issues with my Upwork account.
+              </div>
+              <div>
+                Please contact me via Skype
+              </div>
+            </div>
+            <div className='flex items-center justify-between px-4'>
+              <div className='flex items-center gap-1'>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+                  <path fill="#174ba8" d="M16 4A12 12 0 1 0 16 28A12 12 0 1 0 16 4Z"></path><path fill="#146ce8" d="M32 20A12 12 0 1 0 32 44A12 12 0 1 0 32 20Z"></path><path fill="#30a6ff" d="M24 6A18 18 0 1 0 24 42A18 18 0 1 0 24 6Z"></path><path fill="#fff" d="M16.97,31.316c0-1.037,1.089-1.624,1.832-1.624c0.743,0,2.816,1.451,4.803,1.451 c1.054,0,3.421-0.103,3.421-2.29c0-3.585-10.115-3.308-10.115-9.274c0-1.038,0.285-5.795,7.784-5.795 c2.016,0,5.71,0.577,5.71,2.493c0,1.406-0.958,1.769-1.6,1.769c-1.244,0-1.745-1.123-4.285-1.123c-3.508,0-3.421,2.102-3.421,2.408 c0,3.017,10.073,3.017,10.073,9.255c0,6.141-7.491,5.814-8.58,5.814C21.474,34.4,16.97,33.856,16.97,31.316z"></path>
+                </svg>
+                Skype Name
+              </div>
+              <div>live:.cid.9aa530fa16e609c6</div>
             </div>
           </DialogBody>
         </Dialog>
