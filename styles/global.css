@@ -33,3 +33,17 @@
     list-style-type: circle;
     padding-left: 2rem;
 }
+
+.quadrado {
+    animation: crescendo 0.3s alternate infinite ease-in;
+}
+
+@keyframes crescendo {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}

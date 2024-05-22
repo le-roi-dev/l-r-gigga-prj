@@ -239,7 +239,7 @@ export default function Home() {
 
         <div className='absolute flex flex-col gap-4 bottom-4 right-4'>
           <button
-            className='bg-blue-gray-50 p-4 rounded-xl drop-shadow-2xl'
+            className='bg-blue-gray-50 p-4 rounded-xl drop-shadow-2xl quadrado'
             onClick={handleSkype}
           >
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
