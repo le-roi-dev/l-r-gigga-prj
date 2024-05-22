@@ -234,7 +234,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-
+        <div
+          className='drop-shadow-2xl absolute bottom-5 left-0  py-2 px-6 bg-blue-gray-50 text-blue-gray-900 rounded-tr-full rounded-br-full cursor-pointer flex gap-3 justify-center items-center'
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+            <path fill="#174ba8" d="M16 4A12 12 0 1 0 16 28A12 12 0 1 0 16 4Z"></path><path fill="#146ce8" d="M32 20A12 12 0 1 0 32 44A12 12 0 1 0 32 20Z"></path><path fill="#30a6ff" d="M24 6A18 18 0 1 0 24 42A18 18 0 1 0 24 6Z"></path><path fill="#fff" d="M16.97,31.316c0-1.037,1.089-1.624,1.832-1.624c0.743,0,2.816,1.451,4.803,1.451 c1.054,0,3.421-0.103,3.421-2.29c0-3.585-10.115-3.308-10.115-9.274c0-1.038,0.285-5.795,7.784-5.795 c2.016,0,5.71,0.577,5.71,2.493c0,1.406-0.958,1.769-1.6,1.769c-1.244,0-1.745-1.123-4.285-1.123c-3.508,0-3.421,2.102-3.421,2.408 c0,3.017,10.073,3.017,10.073,9.255c0,6.141-7.491,5.814-8.58,5.814C21.474,34.4,16.97,33.856,16.97,31.316z"></path>
+          </svg>
+          <div className='text-blue-900 text-sm'>live:.cid.9aa530fa16e609c6</div>
+        </div>
         <div className='absolute flex flex-col gap-4 bottom-4 right-4'>
           <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl text-blue-gray-50'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
