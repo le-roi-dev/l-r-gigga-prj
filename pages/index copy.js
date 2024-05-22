@@ -47,25 +47,25 @@ const theme = {
     styles: {
       base: {
         label: {
-          color: "text-blue-gray-900"
+          color: "text-white"
         }
       }
     }
   },
-  // select: {
-  //   styles: {
-  //     base: {
-  //       select: {
-  //         color: "blue-gray-900"
-  //       },
-  //       menu: {
-  //         bg: "bg-blue-gray-50",
-  //         color: "blue-gray-900",
-  //         border: "border border-teal"
-  //       },
-  //     },
-  //   }
-  // }
+  select: {
+    styles: {
+      base: {
+        select: {
+          color: "white"
+        },
+        menu: {
+          bg: "bg-[#343a40]",
+          color: "white",
+          border: "border border-teal"
+        },
+      },
+    }
+  }
 }
 const maxNum = 80;
 const servers = [
@@ -121,16 +121,16 @@ export default function Home() {
 
   return (
     <ThemeProvider value={theme}>
-      <div className="flex justify-center items-center h-screen bg-blue-gray-100 text-lg relative text-blue-gray-900">
+      <div className="flex justify-center items-center h-screen bg-black text-lg relative text-white">
         <div className=''>
-          <div className='flex justify-center pb-5'>
+          <div className='flex justify-center pb-5]'>
             <img src="./images/logo.png" className='sm:w-[100px] w-[70px] h-auto' />
-            <div className='flex items-center sm:text-6xl text-5xl font-bold pl-4 text-blue-gray-800'>
+            <div className='flex items-center sm:text-6xl text-5xl font-bold pl-4'>
               gigga.io
             </div>
           </div>
           <div className="flex flex-row gap-3 h-[390px]">
-            <div className="drop-shadow-2xl w-[350px] h-full lg:flex flex-col hidden bg-blue-gray-50 rounded-lg justify-center items-center text-3xl text-[#8c8c8c] p-2">
+            <div className="w-[350px] h-full lg:flex flex-col hidden bg-[#343a40] rounded-lg justify-center items-center text-3xl text-[#8c8c8c] p-2">
               <div className='flex-1 w-full flex justify-center items-center'>Ads</div>
               <div className='flex flex-row gap-2 w-full'>
                 <button
@@ -149,15 +149,15 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="drop-shadow-2xl w-[350px] h-full flex flex-col gap-3">
-              <div className="bg-blue-gray-50 rounded-lg p-4 flex flex-col gap-2 overflow-auto">
+            <div className="w-[350px] h-full flex flex-col gap-3">
+              <div className="bg-[#343a40] rounded-lg p-4 flex flex-col gap-2 overflow-auto">
                 <div className='flex flex-row gap-2'>
                   {
                     regions.map(r => (
                       <button
                         key={r.key}
                         onClick={() => handleRegion(r.key)}
-                        className={`duration-500 flex-1 flex rounded-md px-2 py-1 relative items-center hover:bg-blue-gray-900 hover:text-blue-gray-50 ${r.key == region ? "bg-blue-gray-900 text-blue-gray-50" : ""}`}
+                        className={`duration-500 flex-1 flex rounded-md px-2 py-1 relative items-center hover:bg-blue-gray-50 hover:text-blue-gray-900 ${r.key == region ? "bg-blue-gray-50 text-blue-gray-900" : ""}`}
                       >
                         <img src={`./images/${r.img}`} className='w-[40px] h-[25px] rounded' />
                         <div className='pl-2 text-lg'>{r.name}</div>
@@ -171,7 +171,7 @@ export default function Home() {
                       <button
                         key={m.key}
                         onClick={() => handleMode(m.key)}
-                        className={`duration-500 flex rounded-md px-2 py-1 relative items-center hover:bg-blue-gray-900 hover:text-blue-gray-50 ${m.key == mode ? "bg-blue-gray-900 text-blue-gray-50" : ""}`}
+                        className={`duration-500 flex rounded-md px-2 py-1 relative items-center hover:bg-blue-gray-50 hover:text-blue-gray-900 ${m.key == mode ? "bg-blue-gray-50 text-blue-gray-900" : ""}`}
                       >
                         <img src={`./images/${m.img}`} className='w-[20px] h-[20px] rounded-md' />
                         <div className='pl-1 text-sm'>{m.name}</div>
@@ -184,7 +184,7 @@ export default function Home() {
                     servers.filter(s => s.region == region).map(s => (
                       <button
                         onClick={() => handleServer(s.key)}
-                        className={`flex duration-500 gap-1 p-1 rounded-md hover:bg-blue-gray-900 hover:text-blue-gray-50 ${server == s.key ? 'bg-blue-gray-900 text-blue-gray-50' : ''}`}>
+                        className={`flex duration-500 gap-1 p-1 rounded-md hover:bg-blue-gray-50 hover:text-blue-gray-900 ${server == s.key ? 'bg-blue-gray-50 text-blue-gray-900' : ''}`}>
                         <div className='px-2'>{s.region}</div>
                         <div className='flex-1'>{s.name}</div>
                         <div className=''>{s.number}/{maxNum}</div>
@@ -193,10 +193,10 @@ export default function Home() {
                   }
                 </div>
               </div>
-              <div className="bg-blue-gray-50 rounded-lg flex flex-col gap-2 p-2 justify-center">
-                <Input label="User name" id="username" color='blue-gray-900' />
+              <div className="bg-[#343a40] rounded-lg flex flex-col gap-2 p-2 justify-center">
+                <Input label="User name" id="username" color='white' />
                 <div className='flex flex-row gap-2'>
-                  <button className='flex-1 bg-[#007bff] hover:bg-[#006ada] text-blue-gray-50 duration-500 flex py-2 items-center justify-center rounded-md font-bold text-base gap-1'>
+                  <button className='flex-1 bg-[#007bff] hover:bg-[#006ada] duration-500 flex py-2 items-center justify-center rounded-md font-bold text-base gap-1'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                       <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
                     </svg>
@@ -205,16 +205,16 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="drop-shadow-2xl w-[350px] h-full md:flex hidden rounded-lg h-full flex-col gap-4">
-              <div className='bg-blue-gray-50 rounded-lg p-4 '>
+            <div className="w-[350px] h-full md:flex hidden rounded-lg h-full flex-col gap-4">
+              <div className='bg-[#343a40] rounded-lg p-4 '>
                 <div className='text-2xl font-bold text-center pb-2'>
                   Controls
                 </div>
-                <div className='text-blue-gray-700 text-base'>
+                <div className='text-[#aaaaaa] text-base'>
                   Use W A S D to move. Aim with your mouse and shoot with space. Good Luck!
                 </div>
               </div>
-              <div className='flex-1 flex flex-col bg-blue-gray-50 rounded-lg p-4'>
+              <div className='flex-1 flex flex-col bg-[#343a40] rounded-lg p-4'>
                 <div className='text-2xl font-bold text-center pb-4'>
                   Latest Update
                 </div>
@@ -222,7 +222,7 @@ export default function Home() {
                   Patch (14/05/2024): Update lol
                 </div>
                 <div className='flex-1'>
-                  <ul className='text-blue-gray-700 text-base list-disc pl-4'>
+                  <ul className='text-[#aaaaaa] text-base list-disc pl-4'>
                     <li>Bug fixes</li>
                     <li>Small redesignes to Domination mode</li>
                     <li>Implementation of new features</li>
@@ -236,19 +236,19 @@ export default function Home() {
         </div>
 
         <div className='absolute flex flex-col gap-4 bottom-4 right-4'>
-          <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl text-blue-gray-50'>
+          <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
               <path fill="currentColor" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418Z"></path>
             </svg>
           </Link>
-          <Link href="https://www.reddit.com/r/giggaio/" className='bg-[#ff4400] p-4 rounded-xl text-blue-gray-50'>
+          <Link href="https://www.reddit.com/r/giggaio/" className='bg-[#ff4400] p-4 rounded-xl'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1792 1696">
               <path fill="currentColor" d="M1792 846q0 58-29.5 105.5T1683 1024q12 46 12 96q0 155-106.5 287T1298 1615.5T898 1692t-399.5-76.5t-290-208.5T102 1120q0-47 11-94q-51-25-82-73.5T0 846q0-82 58-140.5T199 647q85 0 145 63q218-152 515-162L975 27q3-13 15-21t26-5l369 81q18-37 54-59.5T1518 0q62 0 106 43.5t44 105.5t-44 106t-106 44t-105.5-43.5T1369 150l-334-74l-104 472q300 9 519 160q58-61 143-61q83 0 141 58.5t58 140.5zM418 1045q0 62 43.5 106t105.5 44t106-44t44-106t-44-105.5T567 896q-61 0-105 44t-44 105zm810 355q11-11 11-26t-11-26q-10-10-25-10t-26 10q-41 42-121 62t-160 20t-160-20t-121-62q-11-10-26-10t-25 10q-11 10-11 25.5t11 26.5q43 43 118.5 68t122.5 29.5t91 4.5t91-4.5t122.5-29.5t118.5-68zm-3-205q62 0 105.5-44t43.5-106q0-61-44-105t-105-44q-62 0-106 43.5t-44 105.5t44 106t106 44z"></path>
             </svg>
           </Link>
         </div>
         <div
-          className='drop-shadow-2xl absolute top-10 left-0  py-2 px-6 font-bold bg-blue-gray-50 text-blue-gray-900 rounded-tr-full rounded-br-full cursor-pointer flex gap-3'
+          className='absolute top-10 left-0  py-2 px-6 font-bold bg-[#74849152] rounded-tr-full rounded-br-full cursor-pointer flex gap-3'
           onClick={() => handleNavDrawer(true)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -256,9 +256,9 @@ export default function Home() {
           </svg>
           More
         </div>
-        <Drawer open={openNav} onClose={() => handleNavDrawer(false)} className="p-4 bg-blue-gray-50 ">
+        <Drawer open={openNav} onClose={() => handleNavDrawer(false)} className="p-4 bg-[#343a40] ">
           <div className="mb-6 flex items-center justify-between">
-            <Typography variant="h5" color="blue-gray-900" className='flex gap-2'>
+            <Typography variant="h5" color="white" className='flex gap-2'>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                 <path fillRule="evenodd" d="M4.5 12a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm6 0a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" clipRule="evenodd" />
               </svg>
@@ -286,7 +286,7 @@ export default function Home() {
               infos.filter(info => !info.mobile).map(info => (
                 <div
                   onClick={() => handleDescModal(info)}
-                  className='hover:bg-blue-gray-100 duration-500 px-3 py-2 cursor-pointer rounded-md'
+                  className='hover:bg-[#74849152] duration-500 px-3 py-2 cursor-pointer rounded-md'
                 >
                   {info.title}
                 </div>
@@ -315,8 +315,8 @@ export default function Home() {
             </div>
           </div>
         </Drawer>
-        <Dialog open={openDescModal} handler={handleDescModal} className='bg-blue-gray-50'>
-          <DialogHeader className='text-blue-gray-900 flex items-center justify-between pb-0'>
+        <Dialog open={openDescModal} handler={handleDescModal} className='bg-[#343a40]'>
+          <DialogHeader className='text-white flex items-center justify-between pb-0'>
             <div>{info.title}</div>
             <IconButton variant="text" color="blue-gray" onClick={handleDescModal}>
               <svg
@@ -340,8 +340,8 @@ export default function Home() {
           </DialogBody>
         </Dialog>
 
-        <Dialog open={openSetting} handler={handleSetting} className='bg-blue-gray-50'>
-          <DialogHeader className='flex items-center justify-between pb-0 text-blue-gray-900'>
+        <Dialog open={openSetting} handler={handleSetting} className='bg-[#343a40]'>
+          <DialogHeader className='flex items-center justify-between pb-0 text-white'>
             <div>Advanced Controls</div>
             <IconButton variant="text" color="blue-gray" onClick={handleSetting}>
               <svg
@@ -360,7 +360,7 @@ export default function Home() {
               </svg>
             </IconButton>
           </DialogHeader>
-          <DialogBody className='max-h-[700px] text-blue-gray-900'>
+          <DialogBody className='max-h-[700px] text-white'>
             <div className='px-3 grid grid-cols-2 gap-4'>
               <div className='flex gap-1'>
                 <div>E:</div>
@@ -410,7 +410,7 @@ export default function Home() {
                 <Option value='glass'>Glass Mode</Option>
               </Select>
             </div>
-            <div className='grid grid-cols-2 mt-4' color='blue-gray-900'>
+            <div className='grid grid-cols-2 mt-4' color='white'>
               <Checkbox color="teal" label="Screenshot Mode" />
               <Checkbox color="teal" label="Classic Traps" />
               <Checkbox color="teal" label="Low Graphics" />
@@ -418,7 +418,7 @@ export default function Home() {
               <Checkbox color="teal" label="Colord Health Bars" />
             </div>
             <div className='px-3 py-2'>
-              <Input label="Your token" color='blue-gray-900' />
+              <Input label="Your token" color='white' />
             </div>
           </DialogBody>
         </Dialog>

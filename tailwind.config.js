@@ -8,6 +8,10 @@ module.exports = withMT({
   ],
   theme: {
     extend: {},
+    screens: {
+      'my-xl': '1150px',
+      // => @media (min-width: 1280px) { ... }
+    },
   },
   plugins: [
     require('tailwind-scrollbar'),

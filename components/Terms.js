@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div className='text-[#aaaaaa]'>
+        <div className='text-blue-gray-700'>
             Terms &amp; Conditions Definitions GIGGA.IO: is a product of GIGGA.IO;
             GIGGA.IO Game: means the online multiplayer game entitled GIGGA.IO,
             as available on the Site and includes all related games, software,

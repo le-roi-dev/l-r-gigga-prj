@@ -1,6 +1,6 @@
 export default function Home() {
     return (
-        <div className='text-[#aaaaaa]'>
+        <div className='text-blue-gray-700'>
             PRIVACY POLICY (Last updated: October 14, 2020) We collect your
             data to provide you with the best possible experience at the
             https://gigga.io website (the "Game"). When you use this Game, you

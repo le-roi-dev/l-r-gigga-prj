@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div className='text-[#aaaaaa]'>
+        <div className='text-blue-gray-700'>
             gigga.io is a fan-made sequel to the game Diep.io. At the start of
             the game the player controls a simple Tank, called the Basic, and
             defeats the Polygons and other players to level up and upgrade their

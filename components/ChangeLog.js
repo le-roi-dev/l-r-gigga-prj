@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div className='text-[#aaaaaa] change-log'>
+        <div className='text-blue-gray-700 change-log'>
             <div className="py-4 border-b">
                 <b>Patch (14/05/2024)</b>: Update lol
                 <ul><li>The developer "broadcast" command can now use colors</li><li>Fixed the control and tab keys messing stuff up</li><li>Dominators in gamemodes no longer accept or have any score</li><li>Added an "info" bot command</li><li>Added a way for Developers to force a gamemode of a server on restart (wink wink)</li><li>Fixed a bug causing there to be uhhh "just over 10 million food entities"</li><li>Added a new Dominator type, Toolbox Dominator</li><li>Trapper Dominator can now spawn</li><li>The nest is now on the map</li><li>Domination is now random, aka you can have 2 or 4 teams, each with a differnet map</li><li>New boss, Palisade</li><li>Bosses are now slightly more common</li><li>Added a new Beta Tank, "Master"</li><li>Minor bug fixes</li></ul>
