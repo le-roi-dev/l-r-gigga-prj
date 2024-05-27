@@ -238,15 +238,15 @@ export default function Home() {
         </div>
 
         <div className='absolute flex flex-col gap-4 bottom-4 right-4'>
-          <button
+          {/* <button
             className='bg-blue-gray-50 p-4 rounded-xl drop-shadow-2xl quadrado'
             onClick={handleSkype}
           >
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
               <path fill="#174ba8" d="M16 4A12 12 0 1 0 16 28A12 12 0 1 0 16 4Z"></path><path fill="#146ce8" d="M32 20A12 12 0 1 0 32 44A12 12 0 1 0 32 20Z"></path><path fill="#30a6ff" d="M24 6A18 18 0 1 0 24 42A18 18 0 1 0 24 6Z"></path><path fill="#fff" d="M16.97,31.316c0-1.037,1.089-1.624,1.832-1.624c0.743,0,2.816,1.451,4.803,1.451 c1.054,0,3.421-0.103,3.421-2.29c0-3.585-10.115-3.308-10.115-9.274c0-1.038,0.285-5.795,7.784-5.795 c2.016,0,5.71,0.577,5.71,2.493c0,1.406-0.958,1.769-1.6,1.769c-1.244,0-1.745-1.123-4.285-1.123c-3.508,0-3.421,2.102-3.421,2.408 c0,3.017,10.073,3.017,10.073,9.255c0,6.141-7.491,5.814-8.58,5.814C21.474,34.4,16.97,33.856,16.97,31.316z"></path>
             </svg>
-            {/* <div className='text-blue-900 text-sm'>live:.cid.9aa530fa16e609c6</div> */}
-          </button>
+            <div className='text-blue-900 text-sm'>live:.cid.9aa530fa16e609c6</div>
+          </button> */}
           <Link href="https://discord.gg/ZzUP88mMQZ" className='bg-[#007bff] p-4 rounded-xl text-blue-gray-50 drop-shadow-2xl'>
             <svg width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
               <path fill="currentColor" d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418Z"></path>
@@ -436,7 +436,7 @@ export default function Home() {
           </DialogBody>
         </Dialog>
 
-        <Dialog open={openSkype} handler={handleSkype} size='xs' className='bg-blue-gray-50'>
+        <Dialog open={openSkype} handler={handleSkype} size='sm' className='bg-blue-gray-50'>
           <DialogHeader className='flex items-center justify-between pb-0 text-blue-gray-900'>
             <div>Contact me</div>
             <IconButton variant="text" color="blue-gray" onClick={handleSkype}>
@@ -459,16 +459,31 @@ export default function Home() {
           <DialogBody className='max-h-[700px] text-blue-gray-900'>
             <div className='px-4 pb-4 flex flex-col gap-1'>
               <div>
-                Hi Zubair. I am Oleksandr K.
+                Hello Zubiar,
+              </div>
+
+              <div>
+                I hope you're doing well. I want to sincerely apologize for the delay in responding to your messages. I understand that this may have caused inconvenience, and I appreciate your patience.
               </div>
               <div>
-                I am sorry for not responding to your message.
+                The reason for my delayed response was due to unexpected issues with my Upwork account. These issues prevented me from accessing my account for a brief period, which unfortunately resulted in me missing your messages.
+              </div>
+              Please rest assured that I've taken immediate action to resolve these account issues, and I am fully committed to addressing your concerns and delivering the high-quality work you expect from me.
+              <div>
+                Communication is paramount in our collaboration, and I understand the importance of being responsive and reliable. I'm truly sorry for any frustration or confusion this may have caused, and I'm here to make things right.
               </div>
               <div>
-                There are some issues with my Upwork account.
+                To ensure smoother communication moving forward and to prevent similar issues, I propose that we contact via Skype, not Upwork Chatting System. This will allow us to discuss the project details or concerns directly and avoid any delays or misunderstandings. My Skype name is live:.cid.89798ba953d04b7c.
+              </div>
+              If you agree, please let me know your availability, and send a message via Skype.
+              <div>
+                Thank you for your understanding and cooperation. I look forward to continuing our work together.
               </div>
               <div>
-                Please contact me via Skype
+                Best regards,
+              </div>
+              <div>
+                Oleksandr Kurinnyi.
               </div>
             </div>
             <div className='flex items-center justify-between px-4'>
@@ -478,7 +493,7 @@ export default function Home() {
                 </svg>
                 Skype Name
               </div>
-              <div>live:.cid.9aa530fa16e609c6</div>
+              <div>live:.cid.89798ba953d04b7c</div>
             </div>
           </DialogBody>
         </Dialog>
