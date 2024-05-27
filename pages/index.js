@@ -201,7 +201,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-blue-gray-50 rounded-lg flex flex-col gap-2 p-2 justify-center">
-              <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="This is the tale of" required />
+                <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-center" placeholder="This is the tale of" required />
                 <div className='flex flex-row gap-2'>
                   <button className='flex-1 bg-[#007bff] hover:bg-[#006ada] text-blue-gray-50 duration-500 flex py-2 items-center justify-center rounded-md font-bold text-base gap-1'>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
