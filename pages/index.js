@@ -23,6 +23,7 @@ import Terms from "../components/Terms";
 import Privacy from "../components/Privacy";
 import ChangeLog from "../components/ChangeLog";
 import Controls from "../components/Controls";
+import Head from 'next/head';
 const regions = [
   { key: "EU", name: "Europe", img: "eu.png" },
   { key: "US", name: "US", img: "us.png" }
@@ -123,6 +124,10 @@ export default function Home() {
 
   return (
     <ThemeProvider value={theme}>
+      <Head>
+        <title>gigga.io beta</title>
+        <link rel="icon" href="./images/logo.png" />
+      </Head>
       <div className="flex justify-center items-center h-screen bg-blue-gray-100 text-lg relative text-blue-gray-900">
         <div className=''>
           <div className='flex justify-center pb-5'>
