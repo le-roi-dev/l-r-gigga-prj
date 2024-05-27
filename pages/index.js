@@ -24,7 +24,7 @@ import Privacy from "../components/Privacy";
 import ChangeLog from "../components/ChangeLog";
 import Controls from "../components/Controls";
 const regions = [
-  { key: "EU", name: "EU", img: "eu.png" },
+  { key: "EU", name: "Europe", img: "eu.png" },
   { key: "US", name: "US", img: "us.png" }
 ]
 
@@ -127,7 +127,7 @@ export default function Home() {
         <div className=''>
           <div className='flex justify-center pb-5'>
             <img src="./images/logo.png" className='sm:w-[100px] w-[70px] h-auto' />
-            <div className='flex items-center sm:text-6xl text-5xl font-bold pl-4 text-blue-gray-800'>
+            <div className='flex items-center sm:text-6xl text-5xl font-bold pl-4 text-white title-deco'>
               gigga.io
             </div>
           </div>
@@ -159,15 +159,15 @@ export default function Home() {
                       <button
                         key={r.key}
                         onClick={() => handleRegion(r.key)}
-                        className={`duration-500 flex-1 flex rounded-md px-2 py-1 relative items-center hover:bg-blue-gray-900 hover:text-blue-gray-50 ${r.key == region ? "bg-blue-gray-900 text-blue-gray-50" : ""}`}
+                        className={`duration-500 flex-1 flex rounded-md px-2 py-1 relative items-center justify-center hover:bg-blue-gray-900 hover:text-blue-gray-50 ${r.key == region ? "bg-blue-gray-900 text-blue-gray-50" : ""}`}
                       >
-                        <img src={`./images/${r.img}`} className='w-[40px] h-[25px] rounded' />
-                        <div className='pl-2 text-lg'>{r.name}</div>
+                        {/* <img src={`./images/${r.img}`} className='w-[40px] h-[25px] rounded' /> */}
+                        <div className='text-base'>{r.name}</div>
                       </button>
                     ))
                   }
                 </div>
-                <div className='flex flex-row gap-2 items-content'>
+                <div className='flex flex-row gap-2 items-content items-center justify-center'>
                   {
                     modes.map(m => (
                       <button
@@ -175,7 +175,7 @@ export default function Home() {
                         onClick={() => handleMode(m.key)}
                         className={`duration-500 flex rounded-md px-2 py-1 relative items-center hover:bg-blue-gray-900 hover:text-blue-gray-50 ${m.key == mode ? "bg-blue-gray-900 text-blue-gray-50" : ""}`}
                       >
-                        <img src={`./images/${m.img}`} className='w-[20px] h-[20px] rounded-md' />
+                        {/* <img src={`./images/${m.img}`} className='w-[20px] h-[20px] rounded-md' /> */}
                         <div className='pl-1 text-sm'>{m.name}</div>
                       </button>
                     ))
