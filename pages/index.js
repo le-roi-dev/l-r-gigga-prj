@@ -2,20 +2,15 @@ import Link from 'next/link'
 import {
   ThemeProvider,
   Drawer,
-  Button,
   Typography,
   IconButton,
   Dialog,
   DialogHeader,
   DialogBody,
-  DialogFooter,
   Option,
   Checkbox,
   Input,
   Select,
-  checkbox,
-  collapse,
-  select
 } from "@material-tailwind/react";
 import { useState } from 'react';
 import About from "../components/About";
